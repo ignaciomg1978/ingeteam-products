@@ -4476,12 +4476,9 @@ __webpack_require__.r(__webpack_exports__);
     },
     save: function save(data) {
       this.$inertia.post('/products', data);
-
-      if (this.props != undefined && this.props.errors == undefined) {
-        this.reset();
-        this.closeModal();
-        this.editMode = false;
-      }
+      this.reset();
+      this.closeModal();
+      this.editMode = false;
     },
     edit: function edit(data) {
       this.form = Object.assign({}, data);
@@ -4491,11 +4488,8 @@ __webpack_require__.r(__webpack_exports__);
     update: function update(data) {
       data._method = 'PUT';
       this.$inertia.post('/products/' + data.id, data);
-
-      if (this.props != undefined && this.props.errors == undefined) {
-        this.reset();
-        this.closeModal();
-      }
+      this.reset();
+      this.closeModal();
     },
     deleteRow: function deleteRow(data) {
       if (!confirm('Are you sure want to remove?')) return;
